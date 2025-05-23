@@ -1,5 +1,5 @@
 <?php
-$host = "localhost";
+$host = "localhost:3306";
 $username = "root";
 $password = "12345678";
 $database = "fanimation";
