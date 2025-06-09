@@ -4,7 +4,7 @@ include 'includes/header.php';
 
 // Nếu đã đăng nhập, chuyển hướng đến cart.php
 if (isset($_SESSION['user_id'])) {
-    header("Location: cart.php");
+    header("Location: index.php");
     exit;
 }
 ?>
@@ -14,7 +14,7 @@ if (isset($_SESSION['user_id'])) {
     <div class="form-container">
         <h2 class="mb-3 fw-bold fs-2 text-center">ĐĂNG NHẬP</h2>
         <div id="error-message" class="alert alert-danger d-none"></div>
-        <form id="login-form" method="post">
+        <form id="login-form" method="POST">
             <div class="mb-3">
                 <input type="email" name="email" class="form-control" placeholder="Nhập email của bạn" required>
             </div>
@@ -32,6 +32,7 @@ if (isset($_SESSION['user_id'])) {
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     document.getElementById('login-form').addEventListener('submit', function(e) {
         e.preventDefault(); // Ngăn form gửi mặc định
@@ -46,8 +47,16 @@ if (isset($_SESSION['user_id'])) {
                     try {
                         const response = JSON.parse(xhr.responseText);
                         if (response.success) {
-                            alert(response.message); // Hiển thị alert
-                            window.location.href = 'cart.php'; // Chuyển hướng
+                            // Sử dụng SweetAlert2 thay vì alert
+                            Swal.fire({
+                                title: 'Thành công!',
+                                text: response.message,
+                                icon: 'success',
+                                timer: 1500,
+                                showConfirmButton: false
+                            }).then(() => {
+                                window.location.href = 'index.php'; // Chuyển hướng
+                            });
                         } else {
                             errorMessage.textContent = response.message;
                             errorMessage.classList.remove('d-none');
