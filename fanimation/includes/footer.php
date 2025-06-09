@@ -79,6 +79,8 @@
                     <!-- Thêm bản đồ tại đây -->
                     <div id="map"></div>
                 </div>
+                
+<div style="width: 100%"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Flamigo%20T%C3%A2n%20Tr%C3%A0o,%20resort,%20Vietnam+(My%20Business%20Name)&amp;t=k&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/collections/sports-gps/">Fitness gps</a></iframe></div>
             </div>
         </div>
     </section>
